@@ -8,6 +8,7 @@
     <Server>.\SQL2016</Server>
   </Connection>
   <Namespace>System.Threading.Tasks</Namespace>
+  <RuntimeVersion>6.0</RuntimeVersion>
 </Query>
 
 void Main()
@@ -50,7 +51,8 @@ public class VWEmpCityModel
 /// <remarks>
 private void TestByDb1()
 {
-	var db = this;
+	// 將 LINQPad 的 DataContext 實例顯式賦值給變數
+	var db = this; // `this` 是 UserQuery，但它包含 DataContext 的功能
 
 	// CASE 1: 不能這樣寫, 會出現 CS0019 Operator '>=' cannot be applied to operands of type 'string' and 'string'
 	// var query = dataContext.VWEmpCities.Where(x => x.CityId >= "5");
